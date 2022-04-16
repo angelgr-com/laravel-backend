@@ -20,9 +20,9 @@ use App\Http\Controllers\API\PassportAuthController;
 // });
 
 // Laravel Passport Routes
-Route::post('register', [PassportAuthController::class, 'register']);
-Route::post('login', [PassportAuthController::class, 'login']);
+Route::post('/register', [PassportAuthController::class, 'register']);
+Route::post('/login', [PassportAuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
-    Route::get('get-user', [PassportAuthController::class, 'userInfo']);
+    Route::get('/get-user', [PassportAuthController::class, 'userInfo']);
 });
     
