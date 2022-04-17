@@ -16,17 +16,23 @@ class PassportAuthController extends Controller
             'name' => 'required|string|min:2|max:64',
             'email' => 'required|string|unique:users|email|min:8|max:64',
             'password' => 'required|string|min:8|max:32|',
+            'username' => 'required|string|unique:users|min:2|max:32|',
+            'steamUsername' => 'string|min:2|max:32|',
+            'role' => 'string|min:4|max:5|',
         ]);
 
         if ($data->fails()){
             return response()->json(['message' => $data->errors()->first(), 'status' => false], 400);
         }
 
-        // If data is validated, encrypt password and save user data in database
+        // If data is validated, encrypt password and store user data
         $user = User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => bcrypt($request->password),
+            'username' => $request->get('username'),
+            'steamUsername' => $request->get('steamUsername'),
+            'role' => 'user',
         ]);
 
         return response()->json(['message' => 'User registered successfully'], 200);
