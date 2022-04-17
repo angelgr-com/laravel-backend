@@ -13,4 +13,5 @@ Route::get('/hi', function () {
 Route::post('/register', [PassportAuthController::class, 'register']);
 Route::post('/login', [PassportAuthController::class, 'login']);
 Route::post('/forget', [ForgetController::class, 'forget']);
-    
+Route::post('/reset', [ResetController::class, 'reset']);
+
