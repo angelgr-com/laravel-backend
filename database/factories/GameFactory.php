@@ -14,7 +14,9 @@ class GameFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title'=>$this->faker->word(),
+            'thumbnail_url'=>$this->faker->imageUrl(360, 360, 'animals', true, 'dogs', true),
+            'url'=>$this->faker->url()
         ];
     }
 }
