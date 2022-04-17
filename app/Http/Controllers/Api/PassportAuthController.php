@@ -12,9 +12,9 @@ class PassportAuthController extends Controller
     {
         // Validate request data
         $data = $this->validate($request, [
-            'name' => 'required|min:2|min:8|max:64',
-            'email' => 'required|unique|email|min:8|max:64',
-            'password' => 'required|min:8|max:32',
+            'name' => 'required|min:2|max:64',
+            'email' => 'required|unique:users|email|min:8|max:64',
+            'password' => 'required|min:8|max:32|',
         ],
         [
             'name.required' => 'Name is required.',
@@ -27,7 +27,8 @@ class PassportAuthController extends Controller
             'email.max' => 'Email must have a maximum of 64 characters',
             'password.min' => 'Password must have at least 2 characters',
             'password.max' => 'Password must have a maximum of 32 characters',
-        ]);
+        ]
+        );
         // Encrypt password before save it in database
         $data['password'] = bcrypt($request->password);
         // If data is validated, then save user in database
@@ -55,5 +56,12 @@ class PassportAuthController extends Controller
         } else {
             return response()->json(['error' => 'Unauthorised'], 401);
         }
+    }
+
+    public function userInfo()
+    {
+        $user = auth()->user();
+
+        return response()->json(['user' => $user], 200);
     }
 }
