@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
                 GameSeeder::class,
                 UserSeeder::class,
                 PartySeeder::class,
+                PartyUserSeeder::class,
             ]
         ); 
     }
