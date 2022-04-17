@@ -5,11 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ForgetController;
 use App\Http\Controllers\API\ResetController;
-use App\Http\Controllers\API\UserController;
-
-Route::get('/hi', function () {
-    return 'hi!';
-});
 
 // Laravel Passport Routes
 Route::post('/register', [AuthController::class, 'register']);
