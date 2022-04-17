@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
-class PassportAuthController extends Controller
+class AuthController extends Controller
 {
     public function register(Request $request)
     {
