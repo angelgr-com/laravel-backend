@@ -16,5 +16,5 @@ Route::post('/register', [PassportAuthController::class, 'register']);
 Route::post('/login', [PassportAuthController::class, 'login']);
 Route::post('/forget', [ForgetController::class, 'forget']);
 Route::post('/reset', [ResetController::class, 'reset']);
-Route::get('/user', [UserController::class, 'user'])->middleware('auth:api');
+Route::get('/user', [UserController::class, 'user']);
 
