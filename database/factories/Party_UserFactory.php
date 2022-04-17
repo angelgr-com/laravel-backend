@@ -6,7 +6,7 @@ use App\Models\Game;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PartyUserFactory extends Factory
+class Party_UserFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,8 +20,7 @@ class PartyUserFactory extends Factory
         $userIds = User::all()->pluck('id')->toArray();
 
         return [
-            'name'=>$this->faker->name(),
-            'game_id'=>$this->faker->randomElement($gameIds),
+            'party_id'=>$this->faker->randomElement($gameIds),
             'user_id'=>$this->faker->randomElement($userIds)
         ];
     }

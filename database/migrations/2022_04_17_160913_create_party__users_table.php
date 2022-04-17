@@ -31,7 +31,6 @@ class CreatePartyUsersTable extends Migration
             $table->foreign('party_id')
                   ->references('id')
                   ->on('parties')
-                  ->onUpdate('cascade')
                   ->onDelete('cascade');
         });
     }
