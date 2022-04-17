@@ -27,12 +27,14 @@ class CreateMessagesTable extends Migration
             $table->foreign('from')
                   ->references('id')
                   ->on('users')
+                  ->constrained('users')
                   ->onDelete('cascade');
-            // If we update/remove a party, its related parties
+            // If we remove a party, its related parties
             // will be deleted
             $table->foreign('party_id')
                   ->references('id')
                   ->on('parties')
+                  ->constrained('users')
                   ->onDelete('cascade');
         });
     }
