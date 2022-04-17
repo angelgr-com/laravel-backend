@@ -5,38 +5,31 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class PassportAuthController extends Controller
 {
     public function register(Request $request)
     {
         // Validate request data
-        $data = $this->validate($request, [
-            'name' => 'required|min:2|max:64',
-            'email' => 'required|unique:users|email|min:8|max:64',
-            'password' => 'required|min:8|max:32|',
-        ],
-        [
-            'name.required' => 'Name is required.',
-            'email.required' => 'Email is required.',
-            'password.required' => 'Password is required.',
-            'email.unique' => 'Email is already registered.',
-            'name.min' => 'Name must have at least 2 characters',
-            'name.max' => 'Name must have a maximum of 64 characters',
-            'email.min' => 'Email must have at least 2 characters',
-            'email.max' => 'Email must have a maximum of 64 characters',
-            'password.min' => 'Password must have at least 2 characters',
-            'password.max' => 'Password must have a maximum of 32 characters',
-        ]
-        );
-        // Encrypt password before save it in database
-        $data['password'] = bcrypt($request->password);
-        // If data is validated, then save user in database
-        $user = User::create($data);
-        // Generate token
-        $token = $user->createToken('PassportAuth')->accessToken;
+        $data = Validator::make($request->all(), [
+            'name' => 'required|string|min:2|max:64',
+            'email' => 'required|string|unique:users|email|min:8|max:64',
+            'password' => 'required|string|min:8|max:32|',
+        ]);
 
-        return response()->json(['user' => $user, 'token' => $token], 200);
+        if ($data->fails()){
+            return response()->json(['message' => $data->errors()->first(), 'status' => false], 400);
+        }
+
+        // If data is validated, encrypt password and save user data in database
+        $user = User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->password),
+        ]);
+
+        return response()->json(['message' => 'User registered successfully'], 200);
     }
 
     public function login(Request $request)
