@@ -61,9 +61,11 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show($id)
     {
-        return 'show';
+        $message = Message::find($id)->first();
+
+        return response()->json([$message], 200);
     }
 
     /**
