@@ -76,9 +76,11 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function show(Party $party)
+    public function show($title)
     {
-        return 'show';
+        $party = Party::where('name', '=', $title)->first();
+
+        return response()->json([$party], 200);
     }
 
     /**
