@@ -61,9 +61,9 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($uuid)
     {
-        $message = Message::find($id)->first();
+        $message = Message::find($uuid);
 
         return response()->json([$message], 200);
     }
@@ -88,7 +88,14 @@ class MessageController extends Controller
      */
     public function update(UpdateMessageRequest $request, Message $message)
     {
-        return 'update';
+        $message = Message::find($request->uuid);
+        $message->message = $request->message;
+        $message->save();
+        
+        return response()->json([
+            'message' => 'Message updated successfully',
+            'game' => $message,
+        ], 200);
     }
 
     /**
