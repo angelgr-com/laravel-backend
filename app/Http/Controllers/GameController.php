@@ -56,9 +56,9 @@ class GameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($game_title)
     {
-        $game = Game::where('title', '=', $title)->first();
+        $game = Game::where('title', '=', $game_title)->first();
 
         return response()->json([$game], 200);
     }
@@ -81,9 +81,9 @@ class GameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGameRequest $request, Game $game, $title)
+    public function update(UpdateGameRequest $request, Game $game, $game_title)
     {
-        $game = Game::where('title', '=', $title)->first();
+        $game = Game::where('title', '=', $game_title)->first();
         $game->title = $request->title;
         $game->thumbnail_url = $request->thumbnail_url;
         $game->url = $request->url;
@@ -101,9 +101,9 @@ class GameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function destroy($title)
+    public function destroy($game_title)
     {
-        $game = Game::where('title', '=', $title)->first();
+        $game = Game::where('title', '=', $game_title)->first();
         $game->delete();
 
         return response()->json([

@@ -76,9 +76,9 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($party_name)
     {
-        $party = Party::where('name', '=', $title)->first();
+        $party = Party::where('name', '=', $party_name)->first();
 
         return response()->json([$party], 200);
     }
@@ -101,9 +101,28 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePartyRequest $request, Party $party)
+    public function update(UpdatePartyRequest $request, Party $party, $party_name)
     {
-        return 'update';
+        $party = Party::where('name', '=', $party_name)->first();
+        $party->name = $request->party_name;
+
+        // Assign game_id
+        $game = Game::where('title', '=', $request->game_title)->first();
+        $game_id = $game->id;
+        $party->game_id = $game_id;
+
+        // Assign user_id
+        // while registering a new party,
+        // owner_id is the logged in user
+        $user = auth('api')->user();
+        $party->owner_id = $user->id;
+
+        $party->save();
+        
+        return response()->json([
+            'message' => 'Party updated successfully',
+            'party' => $party,
+        ], 200);
     }
 
     /**
@@ -112,7 +131,7 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Party $party)
+    public function destroy(Party $party, $party_name)
     {
         return 'destroy';
     }
