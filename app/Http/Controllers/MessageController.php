@@ -104,8 +104,13 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($uuid)
     {
-        return 'destroy';
+        $message = Message::find($uuid);
+        $message->delete();
+
+        return response()->json([
+            'message' => 'Message deleted successfully'
+        ], 200);
     }
 }
