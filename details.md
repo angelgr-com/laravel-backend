@@ -750,6 +750,9 @@ composer dumpautoload
 composer update
 
 php artisan migrate:fresh --seed
+
+# generate new personal access client
+php artisan passport:client --personal
 ```
 
 ## API Routes

@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('from');
             $table->string('message');
-            $table->date('date');
+            $table->timestamp('date')->useCurrent();
             $table->uuid('party_id');
             $table->timestamps();
             

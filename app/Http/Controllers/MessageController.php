@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use DateTime;
 
 class MessageController extends Controller
 {
@@ -38,7 +39,20 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        return 'store';
+        $now = new DateTime();
+        $now = $now->format('Y-m-d H:i:s');
+
+        $party = new Message();
+        $party->from = $request->from;
+        $party->message = $request->message;
+        $party->date = $now;
+        $party->party_id = $request->party_id;
+        $party->save();
+        
+        return response()->json([
+            'message' => 'New message created successfully',
+            'game' => $party,
+        ], 200);
     }
 
     /**

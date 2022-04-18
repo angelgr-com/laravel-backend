@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Party;
 use App\Models\User;
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class MessageFactory extends Factory
@@ -17,7 +18,8 @@ class MessageFactory extends Factory
     {
         $partyIds = Party::all()->pluck('id')->toArray();
         $userIds = User::all()->pluck('id')->toArray();
-        $now = date_create()->format('Y-m-d H:i:s');
+        $now = new DateTime();
+        $now = $now->format('Y-m-d H:i:s');
 
         return [
             'from'=>$this->faker->randomElement($userIds),
