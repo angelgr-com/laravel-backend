@@ -38,7 +38,16 @@ class GameController extends Controller
      */
     public function store(StoreGameRequest $request)
     {
-        return 'store';
+        $game = new Game;
+        $game->title = $request->title;
+        $game->thumbnail_url = $request->thumbnail_url;
+        $game->url = $request->url;
+        $game->save();
+        
+        return response()->json([
+            'message' => 'New game created successfully',
+            'game' => $game,
+        ], 200);
     }
 
     /**
