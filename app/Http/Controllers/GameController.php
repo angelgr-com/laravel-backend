@@ -15,7 +15,9 @@ class GameController extends Controller
      */
     public function index()
     {
-        return 'index';
+        $data = Game::orderBy('title','asc')->paginate(10);
+
+        return response()->json(['games' => $data]);
     }
 
     /**
