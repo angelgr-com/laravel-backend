@@ -15,4 +15,9 @@ class Game extends Model
         'thumbnail',
         'url',
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }
