@@ -15,7 +15,7 @@ class PartyController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -23,10 +23,10 @@ class PartyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +36,7 @@ class PartyController extends Controller
      */
     public function store(StorePartyRequest $request)
     {
-        //
+        return 'store';
     }
 
     /**
@@ -47,7 +47,7 @@ class PartyController extends Controller
      */
     public function show(Party $party)
     {
-        //
+        return 'show';
     }
 
     /**
@@ -56,10 +56,10 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function edit(Party $party)
-    {
-        //
-    }
+    // public function edit(Party $party)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +70,7 @@ class PartyController extends Controller
      */
     public function update(UpdatePartyRequest $request, Party $party)
     {
-        //
+        return 'update';
     }
 
     /**
@@ -81,6 +81,6 @@ class PartyController extends Controller
      */
     public function destroy(Party $party)
     {
-        //
+        return 'destroy';
     }
 }
