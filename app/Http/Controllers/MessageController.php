@@ -15,7 +15,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -23,10 +23,10 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +36,7 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        //
+        return 'store';
     }
 
     /**
@@ -47,7 +47,7 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        //
+        return 'show';
     }
 
     /**
@@ -56,10 +56,10 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Message $message)
-    {
-        //
-    }
+    // public function edit(Message $message)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +70,7 @@ class MessageController extends Controller
      */
     public function update(UpdateMessageRequest $request, Message $message)
     {
-        //
+        return 'update';
     }
 
     /**
@@ -81,6 +81,6 @@ class MessageController extends Controller
      */
     public function destroy(Message $message)
     {
-        //
+        return 'destroy';
     }
 }
