@@ -15,11 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(
             [
-                GameSeeder::class,
                 UserSeeder::class,
+                GameSeeder::class,
+                OwnerSeeder::class,
                 PartySeeder::class,
-                PartyUserSeeder::class,
                 MessageSeeder::class,
+                PartyUserSeeder::class,
             ]
         );
     }

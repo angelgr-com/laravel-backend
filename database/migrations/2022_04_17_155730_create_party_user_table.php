@@ -13,7 +13,7 @@ class CreatePartyUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('party_user', function (Blueprint $table) {
+        Schema::create('party__users', function (Blueprint $table) {
             // parties_users (id, user_id, party_id)
             $table->uuid('id')->primary();
             $table->uuid('user_id');
