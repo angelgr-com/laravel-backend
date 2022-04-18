@@ -46,4 +46,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Each user can join many parties.
+     *
+     */
+    public function parties()
+    {
+        return $this->belongsToMany('App\Party')->withTimeStamps();
+    }
 }

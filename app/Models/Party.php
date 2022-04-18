@@ -15,4 +15,13 @@ class Party extends Model
         'game_id',
         'user_id',
     ];
+
+    /**
+     * Each party can hold many users.
+     *
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
 }

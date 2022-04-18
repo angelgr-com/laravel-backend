@@ -14,26 +14,20 @@ class CreatePartiesTable extends Migration
     public function up()
     {
         Schema::create('parties', function (Blueprint $table) {
-            // parties (id, name, game_id, user_id)
-            // user_id here means party owner or creator
+            // parties (id, name, game_id, owner_id)
             $table->uuid('id')->primary();
             $table->string('name');
             $table->uuid('game_id');
-            $table->uuid('user_id');
+            $table->uuid('owner_id');
             $table->timestamps();
-            
-            // If we update/remove a game, related parties
-            // will be updated/deleted
+
             $table->foreign('game_id')
-                ->references('id')
-                ->on('games')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            // If we remove a user, as a creator/owner,
-            // his or her related parties will be deleted
-            $table->foreign('user_id')
                   ->references('id')
-                  ->on('users')
+                  ->on('games')
+                  ->onDelete('cascade');
+            $table->foreign('owner_id')
+                  ->references('id')
+                  ->on('owners')
                   ->onDelete('cascade');
         });
     }
