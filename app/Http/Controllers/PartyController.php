@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Party;
 use App\Http\Requests\StorePartyRequest;
 use App\Http\Requests\UpdatePartyRequest;
+use Illuminate\Support\Facades\DB;
 
 class PartyController extends Controller
 {
@@ -15,7 +16,13 @@ class PartyController extends Controller
      */
     public function index()
     {
-        return 'index';
+        // $data = Party::orderBy('name','asc')->get();
+        $data = DB::table('parties')
+            ->select('parties.name as party name', 'games.title as game title', 'parties.owner_id')
+            ->leftJoin('games', 'games.id', '=', 'parties.game_id')
+            ->get();
+
+        return response()->json(['parties' => $data]);
     }
 
     /**
