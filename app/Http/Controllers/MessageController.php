@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use DateTime;
 
 class MessageController extends Controller
 {
@@ -15,7 +16,9 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return 'index';
+        $data = Message::orderBy('date','asc')->paginate(10);
+
+        return response()->json(['messages' => $data]);
     }
 
     /**
@@ -36,7 +39,20 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        return 'store';
+        $now = new DateTime();
+        $now = $now->format('Y-m-d H:i:s');
+
+        $message = new Message();
+        $message->from = $request->from;
+        $message->message = $request->message;
+        $message->date = $now;
+        $message->party_id = $request->party_id;
+        $message->save();
+        
+        return response()->json([
+            'message' => 'New message created successfully',
+            'game' => $message,
+        ], 200);
     }
 
     /**
@@ -45,9 +61,11 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Message $message)
+    public function show($uuid)
     {
-        return 'show';
+        $message = Message::find($uuid);
+
+        return response()->json([$message], 200);
     }
 
     /**
@@ -70,7 +88,14 @@ class MessageController extends Controller
      */
     public function update(UpdateMessageRequest $request, Message $message)
     {
-        return 'update';
+        $message = Message::find($request->uuid);
+        $message->message = $request->message;
+        $message->save();
+        
+        return response()->json([
+            'message' => 'Message updated successfully',
+            'game' => $message,
+        ], 200);
     }
 
     /**
@@ -79,8 +104,13 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($uuid)
     {
-        return 'destroy';
+        $message = Message::find($uuid);
+        $message->delete();
+
+        return response()->json([
+            'message' => 'Message deleted successfully'
+        ], 200);
     }
 }
