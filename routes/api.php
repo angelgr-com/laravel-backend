@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\PartyController;
+use App\Http\Controllers\MessageController;
 
 // Laravel Passport Routes
 Route::post('/register', [AuthController::class, 'register']);

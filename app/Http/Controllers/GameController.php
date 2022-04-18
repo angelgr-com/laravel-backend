@@ -15,7 +15,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -23,10 +23,10 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +36,7 @@ class GameController extends Controller
      */
     public function store(StoreGameRequest $request)
     {
-        //
+        return 'store';
     }
 
     /**
@@ -47,7 +47,7 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        //
+        return 'show';
     }
 
     /**
@@ -56,10 +56,10 @@ class GameController extends Controller
      * @param  \App\Models\Game  $game
      * @return \Illuminate\Http\Response
      */
-    public function edit(Game $game)
-    {
-        //
-    }
+    // public function edit(Game $game)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +70,7 @@ class GameController extends Controller
      */
     public function update(UpdateGameRequest $request, Game $game)
     {
-        //
+        return 'update';
     }
 
     /**
@@ -81,6 +81,6 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        //
+        return 'destroy';
     }
 }
