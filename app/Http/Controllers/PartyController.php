@@ -131,8 +131,13 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Party $party, $party_name)
+    public function destroy($party_name)
     {
-        return 'destroy';
+        $party = Party::where('name', '=', $party_name)->first();
+        $party->delete();
+
+        return response()->json([
+            'message' => 'Party deleted successfully'
+        ], 200);
     }
 }
