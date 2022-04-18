@@ -13,22 +13,22 @@ Route::post('/reset', [AuthController::class, 'reset']);
 Route::post('/reset/{pincode}', [AuthController::class, 'reset']);
 
 // Games Routes
-Route::get('/games', [GameController::class, 'getGames']);
-Route::get('/games/{title}', [GameController::class, 'getGame']);
-Route::post('/games', [GameController::class, 'newGame']);
-Route::put('/games/{title}', [GameController::class, 'editGame']);
-Route::delete('/games/{title}', [GameController::class, 'deleteGame']);
+Route::get('/games', [GameController::class, 'index']);
+Route::post('/games', [GameController::class, 'store']);
+Route::get('/games/{title}', [GameController::class, 'show']);
+Route::put('/games/{title}', [GameController::class, 'update']);
+Route::delete('/games/{title}', [GameController::class, 'destroy']);
 
 // Parties Routes
-Route::get('/parties', [PartyController::class, 'getParties']);
-Route::get('/parties/{title}', [PartyController::class, 'getParty']);
-Route::post('/parties', [PartyController::class, 'newParty']);
-Route::put('/parties/{title}', [PartyController::class, 'editParty']);
-Route::delete('/parties/{title}', [PartyController::class, 'deleteParty']);
+Route::get('/parties', [PartyController::class, 'index']);
+Route::post('/parties', [PartyController::class, 'store']);
+Route::get('/parties/{title}', [PartyController::class, 'show']);
+Route::put('/parties/{title}', [PartyController::class, 'update']);
+Route::delete('/parties/{title}', [PartyController::class, 'destroy']);
 
 // Messages Routes
-Route::get('/messages', [MessageController::class, 'getMessages']);
-Route::get('/messages/{title}', [MessageController::class, 'getMessage']);
-Route::post('/messages', [MessageController::class, 'newMessage']);
-Route::put('/messages/{title}', [MessageController::class, 'editMessage']);
-Route::delete('/messages/{title}', [MessageController::class, 'deleteMessage']);
+Route::get('/messages', [MessageController::class, 'index']);
+Route::post('/messages', [MessageController::class, 'store']);
+Route::get('/messages/{title}', [MessageController::class, 'show']);
+Route::put('/messages/{title}', [MessageController::class, 'update']);
+Route::delete('/messages/{title}', [MessageController::class, 'destroy']);
