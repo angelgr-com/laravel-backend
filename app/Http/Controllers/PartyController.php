@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Party;
 use App\Http\Requests\StorePartyRequest;
 use App\Http\Requests\UpdatePartyRequest;
+use App\Models\Game;
+use Illuminate\Support\Facades\DB;
 
 class PartyController extends Controller
 {
@@ -15,7 +17,13 @@ class PartyController extends Controller
      */
     public function index()
     {
-        return 'index';
+        // $data = Party::orderBy('name','asc')->get();
+        $data = DB::table('parties')
+            ->select('parties.name as party name', 'games.title as game title', 'parties.owner_id')
+            ->leftJoin('games', 'games.id', '=', 'parties.game_id')
+            ->get();
+
+        return response()->json(['parties' => $data]);
     }
 
     /**
@@ -36,7 +44,30 @@ class PartyController extends Controller
      */
     public function store(StorePartyRequest $request)
     {
-        return 'store';
+        // party(name, game_id, owner_id)
+        $party = new Party;
+        
+        // Assign name
+        $party->name = $request->party_name;
+
+        // Assign game_id
+        $game = Game::where('title', '=', $request->game_title)->first();
+        $game_id = $game->id;
+        $party->game_id = $game_id;
+
+        // Assign user_id
+        // while registering a new party,
+        // owner_id is the logged in user
+        $user = auth('api')->user();
+        $party->owner_id = $user->id;
+
+        // Save new party register
+        $party->save();
+        
+        return response()->json([
+            'message' => 'New party created successfully',
+            'party' => $party,
+        ], 200);
     }
 
     /**
@@ -45,9 +76,11 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function show(Party $party)
+    public function show($party_name)
     {
-        return 'show';
+        $party = Party::where('name', '=', $party_name)->first();
+
+        return response()->json([$party], 200);
     }
 
     /**
@@ -68,9 +101,28 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePartyRequest $request, Party $party)
+    public function update(UpdatePartyRequest $request, Party $party, $party_name)
     {
-        return 'update';
+        $party = Party::where('name', '=', $party_name)->first();
+        $party->name = $request->party_name;
+
+        // Assign game_id
+        $game = Game::where('title', '=', $request->game_title)->first();
+        $game_id = $game->id;
+        $party->game_id = $game_id;
+
+        // Assign user_id
+        // while registering a new party,
+        // owner_id is the logged in user
+        $user = auth('api')->user();
+        $party->owner_id = $user->id;
+
+        $party->save();
+        
+        return response()->json([
+            'message' => 'Party updated successfully',
+            'party' => $party,
+        ], 200);
     }
 
     /**
@@ -79,8 +131,13 @@ class PartyController extends Controller
      * @param  \App\Models\Party  $party
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Party $party)
+    public function destroy($party_name)
     {
-        return 'destroy';
+        $party = Party::where('name', '=', $party_name)->first();
+        $party->delete();
+
+        return response()->json([
+            'message' => 'Party deleted successfully'
+        ], 200);
     }
 }

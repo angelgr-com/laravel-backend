@@ -13,9 +13,15 @@ class Party extends Model
     protected $fillable = [
         'name',
         'game_id',
-        'user_id',
+        'owner_id',
     ];
 
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at',
+    ];
+    
     /**
      * Each party can hold many users.
      *
