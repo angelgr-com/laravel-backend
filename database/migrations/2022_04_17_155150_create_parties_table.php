@@ -27,7 +27,7 @@ class CreatePartiesTable extends Migration
                   ->onDelete('cascade');
             $table->foreign('owner_id')
                   ->references('id')
-                  ->on('owners')
+                  ->on('users')
                   ->onDelete('cascade');
         });
     }

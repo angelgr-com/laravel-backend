@@ -17,14 +17,14 @@ Route::post('/reset/{pincode}', [AuthController::class, 'reset']);
 
 // Games Routes
 Route::get('/games', [GameController::class, 'index']);
-Route::post('/games', [GameController::class, 'store']);
+Route::post('/games/new', [GameController::class, 'store']);
 Route::get('/games/{title}', [GameController::class, 'show']);
 Route::put('/games/{title}', [GameController::class, 'update']);
 Route::delete('/games/{title}', [GameController::class, 'destroy']);
 
 // Parties Routes
 Route::get('/parties', [PartyController::class, 'index']);
-Route::post('/parties', [PartyController::class, 'store']);
+Route::post('/parties/new', [PartyController::class, 'store']);
 Route::get('/parties/{title}', [PartyController::class, 'show']);
 Route::put('/parties/{title}', [PartyController::class, 'update']);
 Route::delete('/parties/{title}', [PartyController::class, 'destroy']);

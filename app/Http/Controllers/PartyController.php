@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Party;
 use App\Http\Requests\StorePartyRequest;
 use App\Http\Requests\UpdatePartyRequest;
+use App\Models\Game;
 use Illuminate\Support\Facades\DB;
 
 class PartyController extends Controller
@@ -43,7 +44,30 @@ class PartyController extends Controller
      */
     public function store(StorePartyRequest $request)
     {
-        return 'store';
+        // party(name, game_id, owner_id)
+        $party = new Party;
+        
+        // Assign name
+        $party->name = $request->party_name;
+
+        // Assign game_id
+        $game = Game::where('title', '=', $request->game_title)->first();
+        $game_id = $game->id;
+        $party->game_id = $game_id;
+
+        // Assign user_id
+        // while registering a new party,
+        // owner_id is the logged in user
+        $user = auth('api')->user();
+        $party->owner_id = $user->id;
+
+        // Save new party register
+        $party->save();
+        
+        return response()->json([
+            'message' => 'New party created successfully',
+            'party' => $party,
+        ], 200);
     }
 
     /**

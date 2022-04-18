@@ -13,7 +13,7 @@ class Party extends Model
     protected $fillable = [
         'name',
         'game_id',
-        'user_id',
+        'owner_id',
     ];
 
     protected $hidden = [
