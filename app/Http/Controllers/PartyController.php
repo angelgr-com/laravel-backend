@@ -6,6 +6,7 @@ use App\Models\Party;
 use App\Http\Requests\StorePartyRequest;
 use App\Http\Requests\UpdatePartyRequest;
 use App\Models\Game;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class PartyController extends Controller
@@ -79,8 +80,14 @@ class PartyController extends Controller
     public function show($party_name)
     {
         $party = Party::where('name', '=', $party_name)->first();
+        $game = Game::find($party->game_id);
+        $user = User::find($party->owner_id);
 
-        return response()->json([$party], 200);
+        return response()->json([
+                                    'Party' => $party->name,
+                                    'Game' => $game->title,
+                                    'Owner' => $user->username,
+                                ], 200);
     }
 
     /**
