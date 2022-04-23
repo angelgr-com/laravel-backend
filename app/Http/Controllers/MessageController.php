@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use App\Models\Party;
 use DateTime;
+use Illuminate\Support\Facades\DB;
 
 class MessageController extends Controller
 {
@@ -66,6 +68,20 @@ class MessageController extends Controller
         $message = Message::find($uuid);
 
         return response()->json([$message], 200);
+    }
+
+    public function showPartyMessages($party_name)
+    {
+        $party = Party::where('name', '=', $party_name)->first();
+
+        $messages = DB::table('messages')
+            ->select('messages.message as message', 'users.username as user')
+            ->where('party_id', '=', $party->id)
+            ->leftJoin('users', 'users.id', '=', 'messages.from')
+            ->orderBy('messages.date', $direction = 'asc')
+            ->get();
+
+        return response()->json($messages, 200);
     }
 
     /**

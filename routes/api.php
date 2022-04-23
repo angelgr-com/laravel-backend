@@ -36,5 +36,6 @@ Route::delete('/parties/{party_name}', [PartyController::class, 'destroy']);
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/messages/new', [MessageController::class, 'store']);
 Route::get('/messages/{uuid}', [MessageController::class, 'show']);
+Route::get('/messages/party/{party_name}', [MessageController::class, 'showPartyMessages']);
 Route::put('/messages/update', [MessageController::class, 'update']);
 Route::delete('/messages/delete/{uuid}', [MessageController::class, 'destroy']);
