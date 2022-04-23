@@ -12,6 +12,7 @@ use App\Mail\ForgetMail;
 use App\Http\Requests\ForgetRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ResetRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -64,9 +65,87 @@ class AuthController extends Controller
         }
     }
 
-    public function userInfo()
+    public function profile()
     {
         return response()->json(['user' => auth()->user()], 200);
+    }
+
+    public function editprofile(Request $request)
+    {
+        $isDataChanged = false;
+
+        // Validate request data
+        $data = Validator::make($request->all(), [
+            'name' => 'string|min:2|max:64',
+            'email' => 'string|email|min:8|max:64',
+            'password' => 'string|min:8|max:32|',
+            'newPassword' => 'string|min:8|max:32|',
+            'confirmNewPassword' => 'string|min:8|max:32|',
+            'username' => 'string|min:2|max:32|',
+            'steamUsername' => 'string|min:2|max:32|',
+            'role' => 'string|min:4|max:5|',
+        ]);
+
+        // Show error if validation fails
+        if ($data->fails()){
+            return response()->json(['message' => $data->errors()->first(), 'status' => false], 400);
+        }
+
+        // Search logged in user
+        $user = User::where('id', '=', auth('api')->user()->id)->first();
+
+        // Change data if request is different from user's data: 
+        if($request->name != $user->name) {
+            $user->name = $request->name;
+            $isDataChanged = true;
+        }
+        if($request->email != $user->email) {
+            $user->email = $request->email;
+            $isDataChanged = true;
+        }
+        // If request password is correct
+        if (Hash::check($request->password, $user->password)) {
+            // Save data if request password is different from user's password
+            if (!Hash::check($request->newPassword, $user->password)) {
+                $user->Password = Hash::make($request->newPassword);
+                $isDataChanged = true;
+            }
+        } else {
+            return response()->json(['message' => 'Incorrect password'], 401);
+        }
+        // If newPassword and ConfirmeNewPassword match
+        if ($request->newPassword === $request->ConfirmNewPassword) {
+            // Save data if request password is different from user's password
+            if (!Hash::check($request->newPassword, $user->password)) {
+                $user->Password = Hash::make($request->newPassword);
+                $isDataChanged = true;
+            } else {
+                return response()->json(['message' => 'New password and confirmed new password don\'t match'], 400);
+            }
+        }
+        // Save if request data is different from user data:
+        if($request->username != $user->username) {
+            $user->username = $request->username;
+            $isDataChanged = true;
+        }
+        if($request->steamUsername != $user->username) {
+            $user->steamUsername = $request->steamUsername;
+            $isDataChanged = true;
+        }
+
+        // Save data is there have been any change
+        if($isDataChanged) {
+            $user->save();
+            return response()->json([
+                'message' => 'User has been edited successfully',
+                'user' => auth()->user(),
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'User has not been edited',
+                'user' => auth()->user(),
+            ], 400);
+        }
     }
 
     public function forget(ForgetRequest $request) {
