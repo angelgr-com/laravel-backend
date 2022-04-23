@@ -130,13 +130,28 @@ class PartyController extends Controller
             $userJoins->save();
 
             return response()->json([
-                'message' => "{$user->username} has successfully joined the party",
+                'message' => "You have successfully joined the party",
             ], 200);
         } else {
             return response()->json([
-                'message' => "{$user->username} is already at this party",
+                'message' => "You are already at this party",
             ], 200);
         };
+    }
+
+    public function leaveParty($party_name)
+    {
+        // Search party in the database
+        $party = Party::where('name', '=', $party_name)->first();
+      
+        // Search party users
+        $user = Party_User::where('user_id', '=', auth('api')->user()->id)->get();
+        if($user === []) {
+            return response()->json('You are not at this party', 200);
+        } else {
+            $user[0]->delete();
+            return response()->json('You have left the party', 200);
+        }
     }
 
     /**
