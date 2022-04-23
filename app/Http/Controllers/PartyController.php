@@ -6,6 +6,7 @@ use App\Models\Party;
 use App\Http\Requests\StorePartyRequest;
 use App\Http\Requests\UpdatePartyRequest;
 use App\Models\Game;
+use App\Models\Party_User;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -90,7 +91,7 @@ class PartyController extends Controller
                                 ], 200);
     }
 
-    public function showByGame($game_title)
+    public function findByGame($game_title)
     {
         $game = Game::where('title', '=', $game_title)->first();
         $party = DB::table('parties')
@@ -102,6 +103,40 @@ class PartyController extends Controller
         ->get();
 
         return response()->json($party, 200);
+    }
+
+    public function joinParty($party_name)
+    {
+        // Search party in the database
+        $party = Party::where('name', '=', $party_name)->first();
+        $user = auth('api')->user();
+             
+        // Search party users
+        $partyUsers = Party_User::where('party_id', '=', $party->id)->get();
+        $isUserAtParty = false;
+
+        // Search if user is at the party
+        for($i=0; $i<count($partyUsers); $i++) {
+            if($partyUsers[$i]->user_id === $user->id) {
+                $isUserAtParty = true;
+                break;
+            }
+        }
+        // Save if user is not at the party
+        if(!$isUserAtParty) {
+            $userJoins = new Party_User();
+            $userJoins->user_id = $user->id;
+            $userJoins->party_id = $party->id;
+            $userJoins->save();
+
+            return response()->json([
+                'message' => "{$user->username} has successfully joined the party",
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => "{$user->username} is already at this party",
+            ], 200);
+        };
     }
 
     /**
