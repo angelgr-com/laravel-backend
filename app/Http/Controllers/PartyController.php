@@ -90,6 +90,20 @@ class PartyController extends Controller
                                 ], 200);
     }
 
+    public function showByGame($game_title)
+    {
+        $game = Game::where('title', '=', $game_title)->first();
+        $party = DB::table('parties')
+        ->select('parties.name as Party', 'games.title as Game', 'users.username as Owner')
+        ->where('title', '=', $game_title)
+        ->leftJoin('games', 'games.id', '=', 'parties.game_id')
+        ->leftJoin('users', 'users.id', '=', 'parties.owner_id')
+        ->orderBy('parties.name', $direction = 'asc')
+        ->get();
+
+        return response()->json($party, 200);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

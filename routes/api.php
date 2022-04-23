@@ -26,6 +26,7 @@ Route::delete('/games/{game_title}', [GameController::class, 'destroy']);
 Route::get('/parties', [PartyController::class, 'index']);
 Route::post('/parties/new', [PartyController::class, 'store']);
 Route::get('/parties/{party_name}', [PartyController::class, 'show']);
+Route::get('/parties/game/{game_title}', [PartyController::class, 'showByGame']);
 Route::put('/parties/update/{party_name}', [PartyController::class, 'update']);
 Route::delete('/parties/{party_name}', [PartyController::class, 'destroy']);
 
