@@ -44,7 +44,7 @@ Technologies used for the development of the API:
 
 The database uses several schemas to store the application information. The data model used:
 
-![image-20220424215550287](README.assets/image-20220424215550287.png)
+![image-20220424215550287](./assets/img/db.png)
 
 ## How to use
 
