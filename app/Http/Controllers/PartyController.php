@@ -178,9 +178,6 @@ class PartyController extends Controller
                     $user[0]->delete();
                     return response()->json([
                         'message' => 'You have left the party',
-                        'user' => $user,
-                        'var_dump user' => var_dump($user),
-                        'user logged in' => auth('api')->user()->id,
                         ], 200);
                 }
             } catch (Exception $exception) {

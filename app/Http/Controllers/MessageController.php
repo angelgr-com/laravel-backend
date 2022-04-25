@@ -74,14 +74,26 @@ class MessageController extends Controller
     {
         $party = Party::where('name', '=', $party_name)->first();
 
-        $messages = DB::table('messages')
+        if($party) {
+            $messages = DB::table('messages')
             ->select('messages.message as message', 'users.username as user')
             ->where('party_id', '=', $party->id)
             ->leftJoin('users', 'users.id', '=', 'messages.from')
             ->orderBy('messages.date', $direction = 'asc')
             ->get();
 
-        return response()->json($messages, 200);
+            if(empty($messages)) {
+                return response()->json([
+                    'message' => 'The are no messages at this party yet',
+                    ], 200);
+            } else {
+                return response()->json($messages, 200);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Party does not exist',
+                ], 200);
+        }
     }
 
     /**
@@ -105,13 +117,19 @@ class MessageController extends Controller
     public function update(UpdateMessageRequest $request, Message $message)
     {
         $message = Message::find($request->uuid);
-        $message->message = $request->message;
-        $message->save();
-        
-        return response()->json([
-            'message' => 'Message updated successfully',
-            'game' => $message,
-        ], 200);
+        if($message) {
+            $message->message = $request->message;
+            $message->save();
+            
+            return response()->json([
+                'message' => 'Message updated successfully',
+                'game' => $message,
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Message does not exist',
+            ], 200);
+        }
     }
 
     /**
