@@ -48,16 +48,6 @@ class PartyController extends Controller
      */
     public function store(StorePartyRequest $request)
     {
-        // Validate request data
-        $data = Validator::make($request->all(), [
-            'party_name' => 'required|string|unique|min:2|max:64',
-            'game_title' => 'required|string|min:2|max:64',
-        ]);
-
-        if ($data->fails()){
-            return response()->json(['message' => $data->errors()->first(), 'status' => false], 400);
-        }
-
         // party(name, game_id, owner_id)
         $party = new Party;
         
@@ -112,15 +102,28 @@ class PartyController extends Controller
     public function findByGame($game_title)
     {
         $game = Game::where('title', '=', $game_title)->first();
-        $party = DB::table('parties')
-        ->select('parties.name as Party', 'games.title as Game', 'users.username as Owner')
-        ->where('title', '=', $game_title)
-        ->leftJoin('games', 'games.id', '=', 'parties.game_id')
-        ->leftJoin('users', 'users.id', '=', 'parties.owner_id')
-        ->orderBy('parties.name', $direction = 'asc')
-        ->get();
+        if($game) {
+            $party = Party::where('game_id', '=', $game->id)->first();
+            if($party) {
+                $party = DB::table('parties')
+                ->select('parties.name as Party', 'games.title as Game', 'users.username as Owner')
+                ->where('title', '=', $game_title)
+                ->leftJoin('games', 'games.id', '=', 'parties.game_id')
+                ->leftJoin('users', 'users.id', '=', 'parties.owner_id')
+                ->orderBy('parties.name', $direction = 'asc')
+                ->get();
 
-        return response()->json($party, 200);
+                return response()->json($party, 200);
+            } else {
+                return response()->json([
+                    'message' => 'Party does not exist'
+                ], 200);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Game does not exist'
+            ], 200);
+        }  
     }
 
     public function joinParty($party_name)
