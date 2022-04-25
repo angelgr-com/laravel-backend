@@ -93,14 +93,20 @@ class PartyController extends Controller
     public function show($party_name)
     {
         $party = Party::where('name', '=', $party_name)->first();
-        $game = Game::find($party->game_id);
-        $user = User::find($party->owner_id);
-
-        return response()->json([
-                                    'Party' => $party->name,
-                                    'Game' => $game->title,
-                                    'Owner' => $user->username,
-                                ], 200);
+        if($party) {
+            $game = Game::find($party->game_id);
+            $user = User::find($party->owner_id);
+    
+            return response()->json([
+                'Party' => $party->name,
+                'Game' => $game->title,
+                'Owner' => $user->username,
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Party does not exist'
+            ], 200);
+        }
     }
 
     public function findByGame($game_title)
