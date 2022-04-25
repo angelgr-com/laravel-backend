@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "c2f028db-c5ae-4652-83fa-8176c91f5699",
+		"name": "2_laravel-backend_games",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTU0YTI4ODFiZjJiZDNiMWRkNmQyNDI4ODIyMDkzZjk5NTA0YmE1ZWExNmQzMDE4YWMyZWUwYTg0YTA0MDYyNjJhMDVkZDYzMDJlYWY2MjYiLCJpYXQiOjE2NTA4Mzg4MTAuNjkzNTgyLCJuYmYiOjE2NTA4Mzg4MTAuNjkzNTg5LCJleHAiOjE2ODIzNzQ4MTAuNTYxODUxLCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.Rfg5LZYmHsIu9krijPvjuvb19gcNJIMlklaAFS2cRs-UAeYd5iGalSx9Ltp8Fx_myAA6-uNC90cdtcGSSh9c4-hBA3vgKng2DjrI2b0SmgZWKBuRKu5jkBzjF7qe6Ot1gLtXSZnC91H3_PPk3agHMhHWl-SoR40PyMBpSkI47vOAGlcW9yVlev3uEm7qZlmZMv84GgOC5lApeMWo91wGO6ij4KBxjjfL1yjakZ35N4YqKTeRuGx3cMiPaRO4VpKrDMefdhtbNfZjF_t1do97HUn2gCP4aIbF3eKI462l9HEfv4fhYRgyVTatSh4Airh3VvxtSHNCSRwH7GaWIp7eCihULsT7VcMVxa51TMk_9KGq1waUwTrDC2yKQ9fc38ayNwsEoiIJuFJo9P_gboDt-78jNpPm4YSLjdl-VlzE8aZLdrUuhAE8P4pc5miivewvX1mPajeRJuaQDEEmlNHiafefeLS8YjixU-_ub8yM6Qzlezwj6Rm73kcwUMgMYdVTrD9ymIxi8YZlJks8HTLG0SXOH3j4fsTa4Xi8kMHnRCfmBn6WIp4Ot2ixcfTQQC3r7sRO5M7CN3cS-zzuixX174Y7SOFRoDLqBI8PwMcDABwCMW25wz6f-jC0B0jbu8JD_0xi4hZGrEIlJLciwEaJj71PSvNeJKfc0zsxVUfE_CY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/games",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"games"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGJmODRjMzdkNWExY2RiYWQ2NTJiZGI1OTAzMzE0NjA1NmVmNWI0NGQ4NmQ5NDMxOTZlYmU2ZmU1NWRhZTcyNDE4NjMzZTcwMGRjZWM5MWEiLCJpYXQiOjE2NTA4Mzc5NjcuNzY4NjcxLCJuYmYiOjE2NTA4Mzc5NjcuNzY4Njc3LCJleHAiOjE2ODIzNzM5NjcuNjE5MTU3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.fGgquZg5L4ZGWWkGnWP8nkdnMpea5gJZV3-lsHrLN92i7-Yq3Omr1JrGd1ewsTw82GP-VTQ8O_mmGTGCaeWHo1B2MK_gef2mBPcMb4CRAv7d7gt9Nz9zjQtCDR2bgaN7cf7OximvSMrdW3Nk83QOsQE9uEJKZfsTxwP_vGT9KlDczdmIw_bl-cmNBanmDBnX6BOb0_LUZA_2I5N2bnVit9d6nCFQMYVt9GHDFDoD1Av1x6lrNc7xBOfA9yd96ZQhQ_mM_xoAtV8aikWt1kaE1sSqjslXWrlhtGPQ1J0kIhW1DPQUX9eYy50bNgGnfXN2qAKLI1eJPX4fwepXRoOHLkJQmdr0kGfIwzwPhkKabDK0z6tQpISjKtbwlsq6TydnCqm8K3W7pdTCyZdR2Sh3EpiWNb_2gaAdQLKewIrq-CC6AECjCSQwe8zHgBrIYUuqJPcvDpB6dOafUKvxtWvvWRMK9cNh-UGqdZLlWF9f-K4Skcd9lUqW-Fst4HbP1ef_wwVhuFv7yAD3BI73MoCnBbHsdYPP2Y8BV4isxhbCGR--EnMZfxxHhlplkJHldGhPh0TGkXFY9Y_rIxb1wYBpgBhOhxK4ES1OKdpxvqe3wQXiA9u2zU29U6amePsW6cQzTMhBbz6dx49Yh-7IJo3VPgOoTSgz4NdfY-IBaY25vKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Halo Infinite\",\r\n    \"thumbnail_url\": \"https://images.igdb.com/igdb/image/upload/t_cover_big/co2dto.png\",\r\n    \"url\": \"https://www.xbox.com/en-US/games/halo-infinite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/games/new",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"games",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiMTA2NGM3Zjc1NWI2MDcxNDI5NzljNGM1ZjEwYmI2MmE5YmRiNmVjOGY2MmU1OTk0YzYxZWRkMDU5NGYzZmJlY2YxYmNjZDAyZWMyM2VmMDQiLCJpYXQiOjE2NTA4ODA5NzUuNDE3OTEsIm5iZiI6MTY1MDg4MDk3NS40MTc5MTEsImV4cCI6MTY4MjQxNjk3NS40MDY4MDUsInN1YiI6ImZiYWVhODc3LWNhMzEtNGU1Zi04NjlkLWRiYzZjODgxYzlkZiIsInNjb3BlcyI6W119.Z6iBDFE86gOfNBQZclliqBusW-RKfafXUkAm1BDYMnkcWR0ia-y0aWAUfar-5zNzbSbwZodc2-SlDZvfftKHlTwykxlJ7ebI_vnK41m-IdxXVfxmjlB9eJOy-ioC8gk4uQYoeMWPGy8J4qUZoZz4MXXvg41II4QHPEi1BoymOJOGA8DMa4niBX_woW4omETq12BzXKKhhjzA13cFg0R7p-GiwrH3uzUnAjtN0NyV4qNxv7sYDg6RBy5zsb5ild805F4NRzN425M83Q8dy1rBOTTP0S7X7oJWk_XD7HaBKzjyhuxIyLdlpH1AHvodys4rhHGXmXmv9zilK8hKHUAbufH6yNqsuI8SA9r6c9tn-cVH2bOBWjGF_-q6ihytd2SQkUK_swJV6j663pFeryzzCI9z5Af72JtNSKwGdPjKI_tRljOFqusJOoOYXZ-TK83HfYQGBVLNGli6zQpUJbiWTYO0x4SrAe_91a9CwQGklLJ0xBkxUNQSk1-8pp4I9mVzP6GHXwAzsEEcPNU8XVbFFPq3Kt-7st_5xSs41fitLeXWykPiSfukte8bWznPF422Osq0c9A37srKaLvyep9YGjXtvFU2iU8exFontAugAfBGNgE_vkznvXn6Mlh8TuCQSV3lSn6m060kazPMoWHfOzZCb9JbrTc52TEQ8eb6XKA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/games/halo infinite",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"games",
+						"halo infinite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGJmODRjMzdkNWExY2RiYWQ2NTJiZGI1OTAzMzE0NjA1NmVmNWI0NGQ4NmQ5NDMxOTZlYmU2ZmU1NWRhZTcyNDE4NjMzZTcwMGRjZWM5MWEiLCJpYXQiOjE2NTA4Mzc5NjcuNzY4NjcxLCJuYmYiOjE2NTA4Mzc5NjcuNzY4Njc3LCJleHAiOjE2ODIzNzM5NjcuNjE5MTU3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.fGgquZg5L4ZGWWkGnWP8nkdnMpea5gJZV3-lsHrLN92i7-Yq3Omr1JrGd1ewsTw82GP-VTQ8O_mmGTGCaeWHo1B2MK_gef2mBPcMb4CRAv7d7gt9Nz9zjQtCDR2bgaN7cf7OximvSMrdW3Nk83QOsQE9uEJKZfsTxwP_vGT9KlDczdmIw_bl-cmNBanmDBnX6BOb0_LUZA_2I5N2bnVit9d6nCFQMYVt9GHDFDoD1Av1x6lrNc7xBOfA9yd96ZQhQ_mM_xoAtV8aikWt1kaE1sSqjslXWrlhtGPQ1J0kIhW1DPQUX9eYy50bNgGnfXN2qAKLI1eJPX4fwepXRoOHLkJQmdr0kGfIwzwPhkKabDK0z6tQpISjKtbwlsq6TydnCqm8K3W7pdTCyZdR2Sh3EpiWNb_2gaAdQLKewIrq-CC6AECjCSQwe8zHgBrIYUuqJPcvDpB6dOafUKvxtWvvWRMK9cNh-UGqdZLlWF9f-K4Skcd9lUqW-Fst4HbP1ef_wwVhuFv7yAD3BI73MoCnBbHsdYPP2Y8BV4isxhbCGR--EnMZfxxHhlplkJHldGhPh0TGkXFY9Y_rIxb1wYBpgBhOhxK4ES1OKdpxvqe3wQXiA9u2zU29U6amePsW6cQzTMhBbz6dx49Yh-7IJo3VPgOoTSgz4NdfY-IBaY25vKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Halo Infinite 2\",\r\n    \"thumbnail_url\": \"https://images.igdb.com/igdb/image/upload/t_cover_big/co2dto.png\",\r\n    \"url\": \"https://www.xbox.com/en-US/games/halo-infinite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/games/halo infinite",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"games",
+						"halo infinite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGJmODRjMzdkNWExY2RiYWQ2NTJiZGI1OTAzMzE0NjA1NmVmNWI0NGQ4NmQ5NDMxOTZlYmU2ZmU1NWRhZTcyNDE4NjMzZTcwMGRjZWM5MWEiLCJpYXQiOjE2NTA4Mzc5NjcuNzY4NjcxLCJuYmYiOjE2NTA4Mzc5NjcuNzY4Njc3LCJleHAiOjE2ODIzNzM5NjcuNjE5MTU3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.fGgquZg5L4ZGWWkGnWP8nkdnMpea5gJZV3-lsHrLN92i7-Yq3Omr1JrGd1ewsTw82GP-VTQ8O_mmGTGCaeWHo1B2MK_gef2mBPcMb4CRAv7d7gt9Nz9zjQtCDR2bgaN7cf7OximvSMrdW3Nk83QOsQE9uEJKZfsTxwP_vGT9KlDczdmIw_bl-cmNBanmDBnX6BOb0_LUZA_2I5N2bnVit9d6nCFQMYVt9GHDFDoD1Av1x6lrNc7xBOfA9yd96ZQhQ_mM_xoAtV8aikWt1kaE1sSqjslXWrlhtGPQ1J0kIhW1DPQUX9eYy50bNgGnfXN2qAKLI1eJPX4fwepXRoOHLkJQmdr0kGfIwzwPhkKabDK0z6tQpISjKtbwlsq6TydnCqm8K3W7pdTCyZdR2Sh3EpiWNb_2gaAdQLKewIrq-CC6AECjCSQwe8zHgBrIYUuqJPcvDpB6dOafUKvxtWvvWRMK9cNh-UGqdZLlWF9f-K4Skcd9lUqW-Fst4HbP1ef_wwVhuFv7yAD3BI73MoCnBbHsdYPP2Y8BV4isxhbCGR--EnMZfxxHhlplkJHldGhPh0TGkXFY9Y_rIxb1wYBpgBhOhxK4ES1OKdpxvqe3wQXiA9u2zU29U6amePsW6cQzTMhBbz6dx49Yh-7IJo3VPgOoTSgz4NdfY-IBaY25vKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Halo Infinite\",\r\n    \"thumbnail_url\": \"https://images.igdb.com/igdb/image/upload/t_cover_big/co2dto.png\",\r\n    \"url\": \"https://www.xbox.com/en-US/games/halo-infinite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/games/halo infinite",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"games",
+						"halo infinite"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "2254c1dc-ea49-410b-9f27-b7ffe743de1d",
+		"name": "3_laravel-backend_parties",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGQ2NDdjOGZhZWY4MWZmNTk5OGVkM2RjYzEzMGI4ODZjYTUxZGUxYzczNjJkMzc1ZmY2MjdlZjljNDc5OTNhM2U4ZWYxZjA3MWJjNDZjZDkiLCJpYXQiOjE2NTA4MzgyODAuNzQ5ODY4LCJuYmYiOjE2NTA4MzgyODAuNzQ5ODcxLCJleHAiOjE2ODIzNzQyODAuNjI5Mjg4LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.Qi_opmb2IUoZJqsTDShJ2WhK-Mu7Sq2GAO8VV9XDrr0rYpZkZyPrzhzCL4cjj5jEJ4Wvbz_ZZOFCHm_TxQH2Fly0zRcD4XdAfBPdSYo2ZB-MeQQHmK4qGYYQIKn9Bvm8YNN-UL55DV361Wg2Q-qkK8gM35C6-Zj80MiLghnnSjz5Dx8B-9JMR6cigLy3jnGBZb0fbl8pWdZ-IOHSC0JOT_flb5B80TqYQuP0jwXrlFwmExm3eltMPcTXo-VIFeeqj7BH_KUkrqww7VNi6w4s4a2ysT7E3yhJ-OqePDGc7mlqy71I87T1vSkFZXOPwVsXit7g0xi_qlChzDqRnGKp-CeHAsc0fuaILO1fKz4idmb7F4_hOPMoPZFrNYaI0uHc_gaY5cvTQ4VoxkkE6VAtrETVBpvJwVXV4qINHVP0q8fsSicTe0smvRnMBYNf7aLY1k8JChy97zQeuDJEp7CRSacE0B8Iyp2KeWTUuRIFiipQYBE3F-JiMCPW7yJAfnvyrpWeLJXdtKNQyYXLevcxBdE5hGP_Qi-0CG4aVkFx4BslDTEjzVYFyTBI0E-reDi31gmO6Qrc6-VCHGbaYvxoignBw8RwFSp_8-Cgt6mzQGI4TeWI89USyBfZJd2QVILDrsDShjFAnuI5vA37cQvnyCb5ppNYnBStzs7OusQTrRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjEyMTMxZDI1NWVlMTZjYjg3OTZkODlmOTdlMzMwZTc1OWJkODhjMzNlNTZiNDUwZmM0OTFiNWQxYjIwYmFlNTAyMDIwZmVhZGVlMTc1NWIiLCJpYXQiOjE2NTA4Mzg0NTUuMzc1MzkxLCJuYmYiOjE2NTA4Mzg0NTUuMzc1Mzk2LCJleHAiOjE2ODIzNzQ0NTUuMjY1Nywic3ViIjoiZmJhZWE4NzctY2EzMS00ZTVmLTg2OWQtZGJjNmM4ODFjOWRmIiwic2NvcGVzIjpbXX0.VdgqmnB8R1vJKZej-2VsfPG7UHzGjikG9d4s3abUYzxL2zB3ZoTnDkQ7W2NdAr_XwAbc5jhHlrQ8gsi8ZmneJrijWKAAAKY59GUluH-X4faJDRAHtnHWB-XakDRUXk2Cd1eBjaUSkQ7sQ4wG1FXKJx1ogiqwLK2QxfI3_waExqqEDhTFolR6RrVp9NLKICd5iEHadPbzA8icVLNDJjlnke65_Eaf_i-lV_kjGQQ94XWTdKM5GA2OeU1svmfLqmnmK6Gw5Fcsvbu-M6Bti6ffGATDJLjqNhPWwcewfVMFUu9MCGjtLLgnZDp-pyJvpjCPhf_5ILCrVilZ6U-mnuMHEvK4AtMDuDuvHfzROkP6QmWbn-hyUjwx6zVt_ghRs7Lqynv78BLvTlyeh50Q7o9uNkZk8tzHVHbYEXJ0WD_zY7yFf10mcur4DpEhIQaJ1UggEz4lkhdmaqH3LTdRXLU52uRprhbcfyXl7QaWkABHYVdPNSeyPSJLNK3HpP25yjT7c1rW7wlr63PtxoQ3F-1RVinyF6dPHxbUR7H_qjtjXqU_CNBgp83ehTahV2g_iVElomDZu8k3HYfYGb6u5vBZ2TW0F9Zluo8V4qP-4bKQ4djbHRVvB3VLmoVcfyeMtqP0aAJqSu79lH-oot2cDZt8asGYkCajHahXidHF4Yf91eE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"party_name\": \"Covenant Aliens\",\r\n    \"game_title\": \"Halo Infinite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/new",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZGJmODRjMzdkNWExY2RiYWQ2NTJiZGI1OTAzMzE0NjA1NmVmNWI0NGQ4NmQ5NDMxOTZlYmU2ZmU1NWRhZTcyNDE4NjMzZTcwMGRjZWM5MWEiLCJpYXQiOjE2NTA4Mzc5NjcuNzY4NjcxLCJuYmYiOjE2NTA4Mzc5NjcuNzY4Njc3LCJleHAiOjE2ODIzNzM5NjcuNjE5MTU3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.fGgquZg5L4ZGWWkGnWP8nkdnMpea5gJZV3-lsHrLN92i7-Yq3Omr1JrGd1ewsTw82GP-VTQ8O_mmGTGCaeWHo1B2MK_gef2mBPcMb4CRAv7d7gt9Nz9zjQtCDR2bgaN7cf7OximvSMrdW3Nk83QOsQE9uEJKZfsTxwP_vGT9KlDczdmIw_bl-cmNBanmDBnX6BOb0_LUZA_2I5N2bnVit9d6nCFQMYVt9GHDFDoD1Av1x6lrNc7xBOfA9yd96ZQhQ_mM_xoAtV8aikWt1kaE1sSqjslXWrlhtGPQ1J0kIhW1DPQUX9eYy50bNgGnfXN2qAKLI1eJPX4fwepXRoOHLkJQmdr0kGfIwzwPhkKabDK0z6tQpISjKtbwlsq6TydnCqm8K3W7pdTCyZdR2Sh3EpiWNb_2gaAdQLKewIrq-CC6AECjCSQwe8zHgBrIYUuqJPcvDpB6dOafUKvxtWvvWRMK9cNh-UGqdZLlWF9f-K4Skcd9lUqW-Fst4HbP1ef_wwVhuFv7yAD3BI73MoCnBbHsdYPP2Y8BV4isxhbCGR--EnMZfxxHhlplkJHldGhPh0TGkXFY9Y_rIxb1wYBpgBhOhxK4ES1OKdpxvqe3wQXiA9u2zU29U6amePsW6cQzTMhBbz6dx49Yh-7IJo3VPgOoTSgz4NdfY-IBaY25vKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Halo Infinite\",\r\n    \"thumbnail_url\": \"https://images.igdb.com/igdb/image/upload/t_cover_big/co2dto.png\",\r\n    \"url\": \"https://www.xbox.com/en-US/games/halo-infinite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/Covenant Aliens",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"Covenant Aliens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGQ2NDdjOGZhZWY4MWZmNTk5OGVkM2RjYzEzMGI4ODZjYTUxZGUxYzczNjJkMzc1ZmY2MjdlZjljNDc5OTNhM2U4ZWYxZjA3MWJjNDZjZDkiLCJpYXQiOjE2NTA4MzgyODAuNzQ5ODY4LCJuYmYiOjE2NTA4MzgyODAuNzQ5ODcxLCJleHAiOjE2ODIzNzQyODAuNjI5Mjg4LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.Qi_opmb2IUoZJqsTDShJ2WhK-Mu7Sq2GAO8VV9XDrr0rYpZkZyPrzhzCL4cjj5jEJ4Wvbz_ZZOFCHm_TxQH2Fly0zRcD4XdAfBPdSYo2ZB-MeQQHmK4qGYYQIKn9Bvm8YNN-UL55DV361Wg2Q-qkK8gM35C6-Zj80MiLghnnSjz5Dx8B-9JMR6cigLy3jnGBZb0fbl8pWdZ-IOHSC0JOT_flb5B80TqYQuP0jwXrlFwmExm3eltMPcTXo-VIFeeqj7BH_KUkrqww7VNi6w4s4a2ysT7E3yhJ-OqePDGc7mlqy71I87T1vSkFZXOPwVsXit7g0xi_qlChzDqRnGKp-CeHAsc0fuaILO1fKz4idmb7F4_hOPMoPZFrNYaI0uHc_gaY5cvTQ4VoxkkE6VAtrETVBpvJwVXV4qINHVP0q8fsSicTe0smvRnMBYNf7aLY1k8JChy97zQeuDJEp7CRSacE0B8Iyp2KeWTUuRIFiipQYBE3F-JiMCPW7yJAfnvyrpWeLJXdtKNQyYXLevcxBdE5hGP_Qi-0CG4aVkFx4BslDTEjzVYFyTBI0E-reDi31gmO6Qrc6-VCHGbaYvxoignBw8RwFSp_8-Cgt6mzQGI4TeWI89USyBfZJd2QVILDrsDShjFAnuI5vA37cQvnyCb5ppNYnBStzs7OusQTrRg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/Covenant Aliens",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"Covenant Aliens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzdiMWEyMWVjMGMzOWQ1N2NhYTllMjk5MmNlZGJhMzhjMWNhZWU1OTY5ZDI4ZDNlZWI0OTFiYzJmMGU2MjExNDI3NTIzZDU0MmJjZjI0MTAiLCJpYXQiOjE2NTAzMTA2NjkuOTI1NTQsIm5iZiI6MTY1MDMxMDY2OS45MjU1NDcsImV4cCI6MTY4MTg0NjY2OS43OTI2OSwic3ViIjoiNjVhOThjODctYzRmMy00OTRjLWE2M2MtZGE2Nzc5ODUwNzU2Iiwic2NvcGVzIjpbXX0.dTRbl66R3cOUi6gwZ2jLEO1ZYTFWN4xwdAj_3EIhjuv_iECpZmCjiRvxJRgdEedpAMnCI5dOJLtj-t-CDVLJqoYU5JjZ5NMf7vAOP7rVNYq36h8cuzzInSMF98Wd_Ai8cK6WWAjGIDIM6QY4nWj_OP0_XyFBl3dp5PTBLDRWWnFGi7ALfL95mOXCickBpWCOhYQhQtTbr4AXTvs1X_Uym26gvm9C9ODG1Vgbxh125pi-zvEyJUf3YXe4gk9MbmirEOSzK5DPTwNGv1DtQHJQW_hE0ngXwZm14CcIlYimwZh98lsHY6A3hsV-nTeirXXeSbX4XrvBFM6kyoH7cYvx3OIsvCoP8nEeMFfzAhqVtV59G4A8O5USFLDoL7maFU-Ycvn9RmZ0E-_VFKpSBybox1JzLiJKwd2RPKUM3qznbaN8aPDZt8CJIQs8HrZntLVcnpKBXyMjXOvKp837HfK3yDa8O-dE_0HHqoYs11d2MbBWd8A2W1UNHktcRtaObzmK3i9rcnyPqlEkNU6q7uFCKcOivXY5rH2BYOEkIBtbkAYE4jr4-lF1PwUaONJ__qFgfnvz3Q5J8zsQLIo9n_Qrs0oR3A8UUZHt8yhY-YoYTXylKCk2Gl9B1-hwNqbBJsnNPa04QtUeIdG99Q9FjQf2IyPlSb3K7DBxnlcG5ZmW9Pw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"party_name\": \"Covenant Aliens 2\",\r\n    \"game_title\": \"Halo Infinite\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/update/Covenant Aliens",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"update",
+						"Covenant Aliens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByGame",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmI2NGJiM2Y5MGQxMzVlYzgyNjU0OTVlZWI5YzgyMjUwZjM2YWYwYTM5NTg5ZmZmMDQ0YmMzYWFjOGRlNzM5YTNlMTMwOWIzYTBkZGRjN2UiLCJpYXQiOjE2NTA4NzI4NzUuNDE1OTEyLCJuYmYiOjE2NTA4NzI4NzUuNDE1OTIsImV4cCI6MTY4MjQwODg3NS4yNTE3ODMsInN1YiI6ImZiYWVhODc3LWNhMzEtNGU1Zi04NjlkLWRiYzZjODgxYzlkZiIsInNjb3BlcyI6W119.QRFYTe3Z5AftEDdX7rgZTF8fC8Kyzk4ivFngqnRNSab7MEq61b384hxwNe8UMGWkB9uo8fKqdsSbeUnftVoqwMVxQhWNhjljGlGXCxWs2mAEUzuZhJ0g71MaJheAJe3OY6-FmJr_cpo-0RoIKYST-TyNTa_OnSTTnMr5Jx_JCSmFDQsW7jxyoUwASHJlvWyLFodQGel1HPdFggYt3jlNVIHAtzzgqS2Mg7SFj_7ICnaTgtW7EmH860YybtntpGsgJCMy0zljw6sh69pqpmZO8JYWpDIxESuGkkTit7E6fusHbON_cgJBII2C9q2mwGsjsSXribtfW8gZWY3VUZzLnNJ6RYREyNQahuQRJSuijfAtGkuwYlQV-jsi5TrKotGqJ3gCY4ik6h2CvNazDfOUs07yGtxeQfn6khB-w35zEjfgqjp2h0FxwKhL5qKE27MMvvdrP_90nuhkc59RfECic06vAVaQa-92MGpJmtNnorJ6-ZhYz8GBhdyykXvOP-A0yon61J7Dx6JZflJhDseOt6wagxUz28nDUxumHNI8LHtddsyr8BydNdgjl2Qo1Y_HisbFzIv8tcFTQN54PPxtToJQ34NXGmOP7FKCzrsLFGKcz2JJOmHS4HzW-FngqRgibMyXj7TxN2f8Tzr_34H0rvh4iu990ZF21hp9cu9PRoA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/game/Halo Infinite",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"game",
+						"Halo Infinite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "joinParty",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZmI3ODc1MGZjMGNjNDQ5ODNkODg2OGEzYzQwNGExMzNjYjM2NTAxMmI0YTk3YmFjNDQ5OGU3ZGU1ZDRhZjIwNzIzYzhiYTRjZWYxYTM5NGYiLCJpYXQiOjE2NTA4NzQzMzQuMDYyMDg1LCJuYmYiOjE2NTA4NzQzMzQuMDYyMDkxLCJleHAiOjE2ODI0MTAzMzMuODk4NjI1LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.Yg21PoNPy4ftIcqzj7H30_OiCRyud73vxVsjsv6_V3xUBTUdjx0J-3pGKaRudEz8J5MX0dA1rZDPZVWNKs29ikoBSftFx4kizi8-YxnXmTlYhiGGbyGromzWbC4wja2YhHx_RwAUmp8udzFRS81nYnnGqvKLMpYmQ1ublnENFruHWfJ8rawxI4zaH2x1EFMMBUBduH1GzIZHUiYjSh1EgeIcnbXKNxfmplhcRh_egGmQZdIpLYALQh1ZQByUJDG-gZZ3M6YsuWUa31mPXWTbQrO6vo8M93HENk0Jw6YIfrlf309u4hqefqVZckvLFrfJZToKUkFyXfKQAw3wGPaqfsHGiCQXMM9zaZTgGbhVJ78hpYS4AIA4HcKj8UOgHmCQeDaR3M0KvTNXUB9e-jIk4idTWO_5soW1rJWNebpva8kbT-aamWFpDZCaTNl1XsGhJj1Hot_piIAoQ2BKMARwMxhIi2el_8rNW7WL7-G9pJOqjcVpQ-0OvkBep1NUXlOApmduDM8gZDisrTpdAJFetZCPrWTRaYVXJTO1tbPEeL6tBDh93PelU_GlDWvoPU4zsxAM3KG3-sOKcuFVkIjc5DZ-m9pPDFGY2GjEf9Lra07J6tJjPImp3dBBU5BOarszqDXFM-oXEe_WorT4C-eAjOti2EUzAx_M11nYIRwTZ98",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/join/Covenant Aliens",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"join",
+						"Covenant Aliens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "leaveParty",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZmI3ODc1MGZjMGNjNDQ5ODNkODg2OGEzYzQwNGExMzNjYjM2NTAxMmI0YTk3YmFjNDQ5OGU3ZGU1ZDRhZjIwNzIzYzhiYTRjZWYxYTM5NGYiLCJpYXQiOjE2NTA4NzQzMzQuMDYyMDg1LCJuYmYiOjE2NTA4NzQzMzQuMDYyMDkxLCJleHAiOjE2ODI0MTAzMzMuODk4NjI1LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.Yg21PoNPy4ftIcqzj7H30_OiCRyud73vxVsjsv6_V3xUBTUdjx0J-3pGKaRudEz8J5MX0dA1rZDPZVWNKs29ikoBSftFx4kizi8-YxnXmTlYhiGGbyGromzWbC4wja2YhHx_RwAUmp8udzFRS81nYnnGqvKLMpYmQ1ublnENFruHWfJ8rawxI4zaH2x1EFMMBUBduH1GzIZHUiYjSh1EgeIcnbXKNxfmplhcRh_egGmQZdIpLYALQh1ZQByUJDG-gZZ3M6YsuWUa31mPXWTbQrO6vo8M93HENk0Jw6YIfrlf309u4hqefqVZckvLFrfJZToKUkFyXfKQAw3wGPaqfsHGiCQXMM9zaZTgGbhVJ78hpYS4AIA4HcKj8UOgHmCQeDaR3M0KvTNXUB9e-jIk4idTWO_5soW1rJWNebpva8kbT-aamWFpDZCaTNl1XsGhJj1Hot_piIAoQ2BKMARwMxhIi2el_8rNW7WL7-G9pJOqjcVpQ-0OvkBep1NUXlOApmduDM8gZDisrTpdAJFetZCPrWTRaYVXJTO1tbPEeL6tBDh93PelU_GlDWvoPU4zsxAM3KG3-sOKcuFVkIjc5DZ-m9pPDFGY2GjEf9Lra07J6tJjPImp3dBBU5BOarszqDXFM-oXEe_WorT4C-eAjOti2EUzAx_M11nYIRwTZ98",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/parties/leave/Covenant Aliens",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"parties",
+						"leave",
+						"Covenant Aliens"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

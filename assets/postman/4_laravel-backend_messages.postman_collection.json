@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "20624092-9acd-4b2c-801b-d5102b9ba84d",
+		"name": "4_laravel-backend_messages",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNiYzE5NjU5M2FmYzc4YTlkZjNjYzZkMmE4MzJmYWRjODU3NGQzYzg3MDdiNTg1YTYwN2M0YzBhYjVhNDc2Yjc1ZGYwNzdlMjA0YTczOTIiLCJpYXQiOjE2NTA4NzgxOTAuMjQ0NjE3LCJuYmYiOjE2NTA4NzgxOTAuMjQ0NjIxLCJleHAiOjE2ODI0MTQxOTAuMTA5NjY3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.TmGNzbgpwke7nv9K2mC70AolM2h5vBRE18PeiEY0OaT9_xP0ebVs618eueukYr4hXMfJBdkG2bNcMaCdTubOcFT7UTFszWeElf2DHF3glH-c5TDdGc0abMJUDY_JAAXaxHuHd-kv6qhRLFZ2nR-JD19CbHIM8Zxw117zq7B0Nmp7J7GzMSk7njONgpm9qJapFQJeajQnIlyaUtMJZrXWqScGTbbdOjZehQqeVCzkW67Of_qWH7dADy4a6LJ6G1PDVd6nMKaBzXL2KQIKY9RZKdeauYtG-z3AupTkd8Ziu39PBgDLv890Osi0tXuMiUErM1SznkSaY5fjhktjKGObjFmTWHhqmYQojdC1dt4WRqwN43lU_8SRt67yTITwcVS7h6KvK3Qt6NInx1vLiN_rtu8jkWGNyPNq9Yos4JgJLopK8Tuj-LDN5M95_8H0F8UCI-_UiIBkC63Ef9R48W9yJ8KXxqhbcQeIiDVHYEeCid5Dgln7HXC7xbvwcNhERGx1J-pRSbchCz6BV_rd3WrvsjJze2ISpaQiHliuf3DG2fhoKaiyqHVeQpVR54_aVu62-d_n8tLv1IX-uybv6YIDgWtw3UkdE7FqGLU5cYq2Ck5b05-HIoqZh3iXgeB6KFyPXDX9hbAoEELap74ftKWwzScCw0cIHJS8kUJ5J-ZiYMQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/messages",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNiYzE5NjU5M2FmYzc4YTlkZjNjYzZkMmE4MzJmYWRjODU3NGQzYzg3MDdiNTg1YTYwN2M0YzBhYjVhNDc2Yjc1ZGYwNzdlMjA0YTczOTIiLCJpYXQiOjE2NTA4NzgxOTAuMjQ0NjE3LCJuYmYiOjE2NTA4NzgxOTAuMjQ0NjIxLCJleHAiOjE2ODI0MTQxOTAuMTA5NjY3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.TmGNzbgpwke7nv9K2mC70AolM2h5vBRE18PeiEY0OaT9_xP0ebVs618eueukYr4hXMfJBdkG2bNcMaCdTubOcFT7UTFszWeElf2DHF3glH-c5TDdGc0abMJUDY_JAAXaxHuHd-kv6qhRLFZ2nR-JD19CbHIM8Zxw117zq7B0Nmp7J7GzMSk7njONgpm9qJapFQJeajQnIlyaUtMJZrXWqScGTbbdOjZehQqeVCzkW67Of_qWH7dADy4a6LJ6G1PDVd6nMKaBzXL2KQIKY9RZKdeauYtG-z3AupTkd8Ziu39PBgDLv890Osi0tXuMiUErM1SznkSaY5fjhktjKGObjFmTWHhqmYQojdC1dt4WRqwN43lU_8SRt67yTITwcVS7h6KvK3Qt6NInx1vLiN_rtu8jkWGNyPNq9Yos4JgJLopK8Tuj-LDN5M95_8H0F8UCI-_UiIBkC63Ef9R48W9yJ8KXxqhbcQeIiDVHYEeCid5Dgln7HXC7xbvwcNhERGx1J-pRSbchCz6BV_rd3WrvsjJze2ISpaQiHliuf3DG2fhoKaiyqHVeQpVR54_aVu62-d_n8tLv1IX-uybv6YIDgWtw3UkdE7FqGLU5cYq2Ck5b05-HIoqZh3iXgeB6KFyPXDX9hbAoEELap74ftKWwzScCw0cIHJS8kUJ5J-ZiYMQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"from\": \"239a2130-8116-4506-942b-b8510b14d483\",\r\n    \"message\": \"Message\",\r\n    \"party_id\": \"ba6d1464-175b-48db-ae0f-a815839dcebf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/messages/new",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"messages",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZmU3MDdiNzBhZTYwMmY5NzVhOGVkNDA4ZTZhNWMzYTU5NzQ4ZmYxYTRiOThlOGE5ZGUxZTlhYjhiM2Y0NDQ0MWQwNjRjOTRkZjZkMjZhMWMiLCJpYXQiOjE2NTAzMTczMjQuNTU2NTIsIm5iZiI6MTY1MDMxNzMyNC41NTY1MjYsImV4cCI6MTY4MTg1MzMyNC40MjU1NDIsInN1YiI6ImJlZDRkYWIwLTgzYzItNGNiNi1hNjIwLTg1YzI2MTg5Mzk3YSIsInNjb3BlcyI6W119.jcDIqdSk7N8MvTTDT1b_NgZJ5sGPU1wleX5NKE3BWAVdgfRR3EFQ-cW_xKrAd1D77tG0wtCXjL_GHiJxHxIeKskNa7kqTiggbGaWWO8RKjxaBPDvPlGh4OxmQuDgkRmvvudtPphNSPJ50P30Uag1uNZQda1IhHOxRugFjQCX6V9B6VzxO-3TsBXz4i4uXMMpEQS-AJcpx_imbqxdIc_8H5dBE1VKUIYQtEtPwh0p0Ti74Tt4bGqlG3vc7dfDzi1l7qeh-tdD4koAAuRyIcW4C_UonxEbRvtYffgyjy1ZFGHNhKFgi0a9UP79AUbP09kICNpyTHp-3sna8CJygUtQvSXiQ_w_8vuX52YcpFulMOVl9teSamINWqvXvblpQBwaw9UPs6yd-PuSrCzEp7YP5Gs7HRYqNUZCZ43t5g22tk6rZUQx6Vi1GR4iFdE5Lr1RDJUVlXJvMdrPBwdUmLWpkhC7pzzSi-u13VSF7VgdBMNFU1Z2oleZ2VavfOowFZWj_7EygqKFdhg1Rrw6ur2YnwlIMwVnZ2B1904gJOFGi8hlzkeNFNqg_2O261fSgRMvmdFJqvqFYCNnXosxhGIlrGplzfx3P_TWBSN1HV6zkKqqpFmdlTKwmtyumUydbzQOyyEjSlrdw2QMNSFEjqcCP_qeE5e8GmGnseBuiPl22Iw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/messages/delete/83b879be-03de-4326-9ef7-694035b71020",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"messages",
+						"delete",
+						"83b879be-03de-4326-9ef7-694035b71020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showPartyMessages",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNiYzE5NjU5M2FmYzc4YTlkZjNjYzZkMmE4MzJmYWRjODU3NGQzYzg3MDdiNTg1YTYwN2M0YzBhYjVhNDc2Yjc1ZGYwNzdlMjA0YTczOTIiLCJpYXQiOjE2NTA4NzgxOTAuMjQ0NjE3LCJuYmYiOjE2NTA4NzgxOTAuMjQ0NjIxLCJleHAiOjE2ODI0MTQxOTAuMTA5NjY3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.TmGNzbgpwke7nv9K2mC70AolM2h5vBRE18PeiEY0OaT9_xP0ebVs618eueukYr4hXMfJBdkG2bNcMaCdTubOcFT7UTFszWeElf2DHF3glH-c5TDdGc0abMJUDY_JAAXaxHuHd-kv6qhRLFZ2nR-JD19CbHIM8Zxw117zq7B0Nmp7J7GzMSk7njONgpm9qJapFQJeajQnIlyaUtMJZrXWqScGTbbdOjZehQqeVCzkW67Of_qWH7dADy4a6LJ6G1PDVd6nMKaBzXL2KQIKY9RZKdeauYtG-z3AupTkd8Ziu39PBgDLv890Osi0tXuMiUErM1SznkSaY5fjhktjKGObjFmTWHhqmYQojdC1dt4WRqwN43lU_8SRt67yTITwcVS7h6KvK3Qt6NInx1vLiN_rtu8jkWGNyPNq9Yos4JgJLopK8Tuj-LDN5M95_8H0F8UCI-_UiIBkC63Ef9R48W9yJ8KXxqhbcQeIiDVHYEeCid5Dgln7HXC7xbvwcNhERGx1J-pRSbchCz6BV_rd3WrvsjJze2ISpaQiHliuf3DG2fhoKaiyqHVeQpVR54_aVu62-d_n8tLv1IX-uybv6YIDgWtw3UkdE7FqGLU5cYq2Ck5b05-HIoqZh3iXgeB6KFyPXDX9hbAoEELap74ftKWwzScCw0cIHJS8kUJ5J-ZiYMQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/messages/party/Covenant Aliens",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"messages",
+						"party",
+						"Covenant Aliens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMGNiYzE5NjU5M2FmYzc4YTlkZjNjYzZkMmE4MzJmYWRjODU3NGQzYzg3MDdiNTg1YTYwN2M0YzBhYjVhNDc2Yjc1ZGYwNzdlMjA0YTczOTIiLCJpYXQiOjE2NTA4NzgxOTAuMjQ0NjE3LCJuYmYiOjE2NTA4NzgxOTAuMjQ0NjIxLCJleHAiOjE2ODI0MTQxOTAuMTA5NjY3LCJzdWIiOiJmYmFlYTg3Ny1jYTMxLTRlNWYtODY5ZC1kYmM2Yzg4MWM5ZGYiLCJzY29wZXMiOltdfQ.TmGNzbgpwke7nv9K2mC70AolM2h5vBRE18PeiEY0OaT9_xP0ebVs618eueukYr4hXMfJBdkG2bNcMaCdTubOcFT7UTFszWeElf2DHF3glH-c5TDdGc0abMJUDY_JAAXaxHuHd-kv6qhRLFZ2nR-JD19CbHIM8Zxw117zq7B0Nmp7J7GzMSk7njONgpm9qJapFQJeajQnIlyaUtMJZrXWqScGTbbdOjZehQqeVCzkW67Of_qWH7dADy4a6LJ6G1PDVd6nMKaBzXL2KQIKY9RZKdeauYtG-z3AupTkd8Ziu39PBgDLv890Osi0tXuMiUErM1SznkSaY5fjhktjKGObjFmTWHhqmYQojdC1dt4WRqwN43lU_8SRt67yTITwcVS7h6KvK3Qt6NInx1vLiN_rtu8jkWGNyPNq9Yos4JgJLopK8Tuj-LDN5M95_8H0F8UCI-_UiIBkC63Ef9R48W9yJ8KXxqhbcQeIiDVHYEeCid5Dgln7HXC7xbvwcNhERGx1J-pRSbchCz6BV_rd3WrvsjJze2ISpaQiHliuf3DG2fhoKaiyqHVeQpVR54_aVu62-d_n8tLv1IX-uybv6YIDgWtw3UkdE7FqGLU5cYq2Ck5b05-HIoqZh3iXgeB6KFyPXDX9hbAoEELap74ftKWwzScCw0cIHJS8kUJ5J-ZiYMQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uuid\": \"c517e889-298a-4164-bdef-7e30f0966f49\",\r\n    \"message\": \"New Message (edited)\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://powerful-headland-77520.herokuapp.com/api/messages/update",
+					"protocol": "https",
+					"host": [
+						"powerful-headland-77520",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"messages",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
