@@ -8,8 +8,6 @@ The objective is to develop with the PHP Laravel Framework a REST API (an Applic
 
 ## Table of contents
 
-- [LFG web application](#lfg-web-application)
-  - [Table of contents](#table-of-contents)
   - [Application requirements](#application-requirements)
   - [Technologies](#technologies)
   - [Database model](#database-model)
