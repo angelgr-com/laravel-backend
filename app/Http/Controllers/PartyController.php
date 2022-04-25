@@ -165,13 +165,32 @@ class PartyController extends Controller
         // Search party in the database
         $party = Party::where('name', '=', $party_name)->first();
       
-        // Search party users
-        $user = Party_User::where('user_id', '=', auth('api')->user()->id)->get();
-        if($user === []) {
-            return response()->json('You are not at this party', 200);
+        if($party) {
+            // Search party users
+            $user = Party_User::where('user_id', '=', auth('api')->user()->id)->get();
+            try {
+                if($user === []) {
+                    // When logged in user is not found in Party_User
+                    // it never shows this message, 
+                    // so 'Undefined error key 0'error is catched
+                    return response()->json(['message' => 'You are not at this party'], 200);
+                } else {
+                    $user[0]->delete();
+                    return response()->json([
+                        'message' => 'You have left the party',
+                        'user' => $user,
+                        'var_dump user' => var_dump($user),
+                        'user logged in' => auth('api')->user()->id,
+                        ], 200);
+                }
+            } catch (Exception $exception) {
+                return response()->json([
+                    'message' => 'You are not at this party',
+                    'error' => $exception->getMessage(),
+                ], 401);
+            }
         } else {
-            $user[0]->delete();
-            return response()->json('You have left the party', 200);
+            return response()->json(['message' => 'Party does not exist'], 200);
         }
     }
 
