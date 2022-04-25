@@ -196,25 +196,32 @@ class PartyController extends Controller
     public function update(UpdatePartyRequest $request, Party $party, $party_name)
     {
         $party = Party::where('name', '=', $party_name)->first();
-        $party->name = $request->party_name;
+        if($party) {
+            $party->name = $request->party_name;
 
-        // Assign game_id
-        $game = Game::where('title', '=', $request->game_title)->first();
-        $game_id = $game->id;
-        $party->game_id = $game_id;
+            // Assign game_id
+            $game = Game::where('title', '=', $request->game_title)->first();
+            $game_id = $game->id;
+            $party->game_id = $game_id;
 
-        // Assign user_id
-        // while registering a new party,
-        // owner_id is the logged in user
-        $user = auth('api')->user();
-        $party->owner_id = $user->id;
+            // Assign user_id
+            // while registering a new party,
+            // owner_id is the logged in user
+            $user = auth('api')->user();
+            $party->owner_id = $user->id;
 
-        $party->save();
-        
-        return response()->json([
-            'message' => 'Party updated successfully',
-            'party' => $party,
-        ], 200);
+            $party->save();
+            
+            return response()->json([
+                'message' => 'Party updated successfully',
+                'party' => $party,
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Party does not exist',
+                'party' => $party,
+            ], 200);
+        }
     }
 
     /**
