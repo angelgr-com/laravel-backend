@@ -19,8 +19,6 @@ class Message extends Model
 
     protected $hidden = [
         'created_at',
-        'id',
-        'party_id',
         'updated_at',
     ];
 }

@@ -8,7 +8,9 @@ use App\Http\Requests\UpdatePartyRequest;
 use App\Models\Game;
 use App\Models\Party_User;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class PartyController extends Controller
 {
@@ -81,28 +83,47 @@ class PartyController extends Controller
     public function show($party_name)
     {
         $party = Party::where('name', '=', $party_name)->first();
-        $game = Game::find($party->game_id);
-        $user = User::find($party->owner_id);
-
-        return response()->json([
-                                    'Party' => $party->name,
-                                    'Game' => $game->title,
-                                    'Owner' => $user->username,
-                                ], 200);
+        if($party) {
+            $game = Game::find($party->game_id);
+            $user = User::find($party->owner_id);
+    
+            return response()->json([
+                'Party' => $party->name,
+                'Game' => $game->title,
+                'Owner' => $user->username,
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Party does not exist'
+            ], 200);
+        }
     }
 
     public function findByGame($game_title)
     {
         $game = Game::where('title', '=', $game_title)->first();
-        $party = DB::table('parties')
-        ->select('parties.name as Party', 'games.title as Game', 'users.username as Owner')
-        ->where('title', '=', $game_title)
-        ->leftJoin('games', 'games.id', '=', 'parties.game_id')
-        ->leftJoin('users', 'users.id', '=', 'parties.owner_id')
-        ->orderBy('parties.name', $direction = 'asc')
-        ->get();
+        if($game) {
+            $party = Party::where('game_id', '=', $game->id)->first();
+            if($party) {
+                $party = DB::table('parties')
+                ->select('parties.name as Party', 'games.title as Game', 'users.username as Owner')
+                ->where('title', '=', $game_title)
+                ->leftJoin('games', 'games.id', '=', 'parties.game_id')
+                ->leftJoin('users', 'users.id', '=', 'parties.owner_id')
+                ->orderBy('parties.name', $direction = 'asc')
+                ->get();
 
-        return response()->json($party, 200);
+                return response()->json($party, 200);
+            } else {
+                return response()->json([
+                    'message' => 'Party does not exist'
+                ], 200);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Game does not exist'
+            ], 200);
+        }  
     }
 
     public function joinParty($party_name)
@@ -144,13 +165,29 @@ class PartyController extends Controller
         // Search party in the database
         $party = Party::where('name', '=', $party_name)->first();
       
-        // Search party users
-        $user = Party_User::where('user_id', '=', auth('api')->user()->id)->get();
-        if($user === []) {
-            return response()->json('You are not at this party', 200);
+        if($party) {
+            // Search party users
+            $user = Party_User::where('user_id', '=', auth('api')->user()->id)->get();
+            try {
+                if($user === []) {
+                    // When logged in user is not found in Party_User
+                    // it never shows this message, 
+                    // so 'Undefined error key 0'error is catched
+                    return response()->json(['message' => 'You are not at this party'], 200);
+                } else {
+                    $user[0]->delete();
+                    return response()->json([
+                        'message' => 'You have left the party',
+                        ], 200);
+                }
+            } catch (Exception $exception) {
+                return response()->json([
+                    'message' => 'You are not at this party',
+                    'error' => $exception->getMessage(),
+                ], 401);
+            }
         } else {
-            $user[0]->delete();
-            return response()->json('You have left the party', 200);
+            return response()->json(['message' => 'Party does not exist'], 200);
         }
     }
 
@@ -175,25 +212,32 @@ class PartyController extends Controller
     public function update(UpdatePartyRequest $request, Party $party, $party_name)
     {
         $party = Party::where('name', '=', $party_name)->first();
-        $party->name = $request->party_name;
+        if($party) {
+            $party->name = $request->party_name;
 
-        // Assign game_id
-        $game = Game::where('title', '=', $request->game_title)->first();
-        $game_id = $game->id;
-        $party->game_id = $game_id;
+            // Assign game_id
+            $game = Game::where('title', '=', $request->game_title)->first();
+            $game_id = $game->id;
+            $party->game_id = $game_id;
 
-        // Assign user_id
-        // while registering a new party,
-        // owner_id is the logged in user
-        $user = auth('api')->user();
-        $party->owner_id = $user->id;
+            // Assign user_id
+            // while registering a new party,
+            // owner_id is the logged in user
+            $user = auth('api')->user();
+            $party->owner_id = $user->id;
 
-        $party->save();
-        
-        return response()->json([
-            'message' => 'Party updated successfully',
-            'party' => $party,
-        ], 200);
+            $party->save();
+            
+            return response()->json([
+                'message' => 'Party updated successfully',
+                'party' => $party,
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Party does not exist',
+                'party' => $party,
+            ], 200);
+        }
     }
 
     /**
@@ -204,11 +248,26 @@ class PartyController extends Controller
      */
     public function destroy($party_name)
     {
-        $party = Party::where('name', '=', $party_name)->first();
-        $party->delete();
+        try {
+            $party = Party::where('name', '=', $party_name)->first();
+            if($party) {
+                $party->delete();
 
-        return response()->json([
-            'message' => 'Party deleted successfully'
-        ], 200);
+                return response()->json([
+                    'message' => 'Party deleted successfully'
+                ], 200);
+            } else {
+                return response()->json([
+                    'message' => 'Party does not exist'
+                ], 200);
+            }
+        } catch (Exception $exception) {
+
+            return response()->json([
+                'message' => 'Delete failed',
+                'error' => $exception->getMessage(),
+            ], 401);
+        }
+        
     }
 }

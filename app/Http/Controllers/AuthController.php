@@ -12,11 +12,7 @@ use App\Mail\ForgetMail;
 use App\Http\Requests\ForgetRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ResetRequest;
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Passport\RefreshToken;
-use Laravel\Passport\Token;
 
 class AuthController extends Controller
 {
@@ -70,9 +66,17 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
+        try {
+            $request->user()->token()->revoke();
 
-        return response()->json(['message' => 'Log out successful'], 401);
+            return response()->json(['message' => 'Log out successful'], 401);
+        } catch (Exception $exception) {
+
+            return response()->json([
+                'message' => 'Log out failed',
+                'error' => $exception->getMessage(),
+            ], 401);
+        }
     }
 
     public function profile()

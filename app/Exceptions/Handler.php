@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +39,23 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    public function render($request, $exception)
+    {
+        if ($exception instanceof RouteNotFoundException) {
+            return response()->json([
+                'message' => 'Please, check if the token used is valid.',
+                'error' => $exception->getMessage(),
+            ], 403);
+        } else {
+            return response()->json([
+                    'Error' => $exception->getMessage(),
+                    'Code' => $exception->getCode(),
+                    'File' => $exception->getFile(),
+                    'Line' => $exception->getLine(),
+                    'Trace' => $exception->getTrace()[0],
+            ], 500);
+        }
     }
 }
