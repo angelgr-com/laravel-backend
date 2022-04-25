@@ -48,8 +48,8 @@ Route::group(
         Route::post('/parties/new', [PartyController::class, 'store']);
         Route::get('/parties/{party_name}', [PartyController::class, 'show']);
         Route::get('/parties/game/{game_title}', [PartyController::class, 'findByGame']);
-        Route::post('/parties/join/{party_name}/', [PartyController::class, 'joinParty']);
-        Route::post('/parties/leave/{party_name}/', [PartyController::class, 'leaveParty']);
+        Route::post('/parties/join/{party_name}', [PartyController::class, 'joinParty']);
+        Route::post('/parties/leave/{party_name}', [PartyController::class, 'leaveParty']);
         Route::put('/parties/update/{party_name}', [PartyController::class, 'update']);
         Route::delete('/parties/{party_name}', [PartyController::class, 'destroy']);
     }
