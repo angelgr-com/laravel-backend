@@ -20,7 +20,7 @@ Route::group(
         Route::put('/profile/edit', [AuthController::class, 'editProfile']);
         Route::post('/forget', [AuthController::class, 'forget']);
         Route::post('/reset', [AuthController::class, 'reset']);
-        Route::post('/reset/{pincode}', [AuthController::class, 'reset']);
+        Route::get('/reset/{pincode}', [AuthController::class, 'reset']);
     }
 );
 

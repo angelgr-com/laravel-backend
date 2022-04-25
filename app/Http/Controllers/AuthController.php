@@ -74,7 +74,7 @@ class AuthController extends Controller
 
             return response()->json([
                 'message' => 'Log out failed',
-                'error' => $exception,
+                'error' => $exception->getMessage(),
             ], 401);
         }
     }

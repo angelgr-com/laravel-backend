@@ -8,7 +8,9 @@ use App\Http\Requests\UpdatePartyRequest;
 use App\Models\Game;
 use App\Models\Party_User;
 use App\Models\User;
+use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class PartyController extends Controller
 {
@@ -46,6 +48,16 @@ class PartyController extends Controller
      */
     public function store(StorePartyRequest $request)
     {
+        // Validate request data
+        $data = Validator::make($request->all(), [
+            'party_name' => 'required|string|unique|min:2|max:64',
+            'game_title' => 'required|string|min:2|max:64',
+        ]);
+
+        if ($data->fails()){
+            return response()->json(['message' => $data->errors()->first(), 'status' => false], 400);
+        }
+
         // party(name, game_id, owner_id)
         $party = new Party;
         
@@ -204,11 +216,26 @@ class PartyController extends Controller
      */
     public function destroy($party_name)
     {
-        $party = Party::where('name', '=', $party_name)->first();
-        $party->delete();
+        try {
+            $party = Party::where('name', '=', $party_name)->first();
+            if($party) {
+                $party->delete();
 
-        return response()->json([
-            'message' => 'Party deleted successfully'
-        ], 200);
+                return response()->json([
+                    'message' => 'Party deleted successfully'
+                ], 200);
+            } else {
+                return response()->json([
+                    'message' => 'Party does not exist'
+                ], 200);
+            }
+        } catch (Exception $exception) {
+
+            return response()->json([
+                'message' => 'Delete failed',
+                'error' => $exception->getMessage(),
+            ], 401);
+        }
+        
     }
 }
