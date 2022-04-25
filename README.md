@@ -75,7 +75,7 @@ By downloading the following files, it is possible to import the endpoints into 
 
 - Open the repository folder and install dependencies:
 
-  ```
+  ```bash
   cd laravel-backend
   composer install
   ```
@@ -84,7 +84,7 @@ By downloading the following files, it is possible to import the endpoints into 
 
 - Create a .env file and enter the database configuration using environment variables:
 
-  ```
+  ```bash
   DB_CONNECTION=mysql
   DB_HOST=
   DB_PORT=
@@ -95,8 +95,14 @@ By downloading the following files, it is possible to import the endpoints into 
 
 - Run database migrations and seeders:
 
-  ```
+  ```bash
   php artisan migrate:fresh --seed
+  ```
+
+- Generate passport keys:
+
+  ```bash
+  php artisan passport:keys
   ```
 
 - Start the server:
